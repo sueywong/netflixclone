@@ -16,8 +16,11 @@
             width: 100px;
             margin-left: 25px;
         }
+        h2{
+          margin-bottom: .5em;
+        }
       body {
-        overflow-x: hidden;
+        
         background-color: black;
         color: white;
         font-family: "Roboto";
@@ -25,19 +28,46 @@
       #price{
         margin-top: 0px;
       }
+      @media (min-width:1000px){
+        #front-page-text{
+          font-size: 25px;
+        }
+        #p{
+          font-size: 20px;
+        }
+      }
+      @media (min-width:1800px){
+        #front-page-text{
+          font-size: 35px;
+        }
+      }
       #front-page-text{
         text-align: center;
+        
+        height:100%;
+        width:100%;
+        justify-content: center;
       }
-      svg {
+      #popcornsvg {
         display: inline-flex;
         width:400px;
+        margin-left: 80px;
+        position: absolute;
+        
 
       }
+      #background{
+        background-image: linear-gradient(black,rgba(0,0,0,.5),rgba(0,0,0,.5),black),url("img4.avif");
+        background-size: cover;
+        width:100%;
+        height:40vmax;
+      }
+      
       .signin{
         float: right;
         background-color: red;  
         color:white;
-        margin-right: 45px;
+        margin-right: 50px;
         border-radius: 5px;
         padding:.5em 1em;
         border:none;
@@ -78,10 +108,125 @@
         margin: 0 5px;
         cursor: pointer;
       }
+      #start{
+        background-color: red;  
+        color:white;
+        margin-left: 5px;
+        border-radius: 5px;
+        padding:.75em 1.25em;
+        border:none;
+        font-weight: 700;
+        font-size: 11pt;
+      }
+      input{
+        background-color: rgba(0,0,0,.5);
+        border:none;
+        padding: .90em 1em;
+        color:aliceblue;
+        border:1px solid rgb(112, 110, 110);
+        border-radius: 3px;
+      }
+      input::placeholder{
+        color: rgb(184, 178, 178);
+
+      }
+      #popcorn{
+        display: flex;
+        
+        gap:5vw;
+        
+        
+      }
+      #popcorntext{
+        justify-content:space-between;
+        display: flex;
+        width:100vw;
+        border-radius: 20px;
+        align-items: center;
+        background-image: linear-gradient(to right, #2f2052, #0f1033);
+        margin-top: 18px;
+        margin-left: 200px;
+      }
+      #ppop{
+        margin-left: 20px;
+      }
+      #learnmore{
+        
+        flex:0 0 auto;
+        height:40px;
+        width:100px;
+        text-align: center;
+        justify-content: center;
+        margin-right: 25px;
+        border-radius: 5px;
+        border:none;
+        background-color: rgba(99, 97, 97, 0.242);
+        color:aliceblue;
+      }
+      #cards{
+       
+        border:none;
+        border-radius: 10px;
+        background-image: linear-gradient(to right, #170d2e, #1e021e);
+        margin-top: 10px;
+        justify-content: space-between;
+        padding-bottom: 10px;
+        padding-right: 10px;
+      }
+      #reasons{
+        display: flex;
+        
+      }
+      #cards svg{
+        display: flex;
+        flex-direction: row;
+        justify-content: right;
+        margin-top: 40px;
+        margin-left: auto;
+      }
+      #p{
+        padding-top: 20px;
+        padding-left: 20px;
+        
+      }
+      #details{
+        
+        display: flex;
+        flex-direction: column;
+       
+        
+      }
+      #d{
+        background-color: rgb(49, 47, 47);
+        font-size: 30px;
+        margin-top: 10px;
+        justify-content: space-between;
+        padding-bottom: 10px;
+        padding-right: 10px;
+        
+      }
+      details{
+        margin-top: 10px;
+        list-style-type: none;
+      }
+      #d p{
+        font-size: 20px;
+      }
+      summary::-webkit-details-marker{
+        display: none;
+
+      }
+      summary::-webkit-details-marker{
+        display: none;
+        
+      }
+      
     </style>
   </head>
   <body>
+    <div id="background">
     <header>
+      
       <nav>
         <svg id="netflix"
               viewBox="0 0 111 30"
@@ -108,22 +253,23 @@
         <h2>Unlimited movies, TV <br>shows, and more</h2>
         <p id="price">Starts at $7.99. Cancel anytime.</p>
         <p>
-          Ready to watch? Enter your email to create r restart yoour membership.
+          Ready to watch? Enter your email to create restart your membership.
         </p>
         <form action="/submit" method="post">
-          <label for="email">Email:</label>
+          <label for="email"></label>
           <input
             type="email"
             id="email"
             name="email"
-            placeholder="Enter your email"
+            placeholder="Email address"
             required
           />
-          <button type="submit">Get Started</button>
+          <button id="start" type="submit">Get Started ></button>
         </form>
         </div>
+      </div>
         <div id="popcorn">
-          <svg width="96" height="96" fill="none">
+          <svg id="popcornsvg"width="96" height="96" fill="none">
             <path
               d="M48 95.213c26.51 0 48-3.875 48-8.656 0-4.78-21.49-8.655-48-8.655S0 81.777 0 86.557c0 4.78 21.49 8.656 48 8.656Z"
               fill="url(#a)"
@@ -653,11 +799,13 @@
               </linearGradient>
             </defs>
           </svg>
-          <p>
+          <div id="popcorntext">
+          <p id="ppop">
             <strong> Netflix you love for just $7.99.</strong> <br />Get our
             most affordable, ad-supported plan.
           </p>
-          <button>Learn More</button>
+          <button id="learnmore">Learn More</button>
+          </div>
         </div>
         <h1>Trending Now</h1>
         <div class="slider">
@@ -674,9 +822,10 @@
         </div>
         <h1>More Reasons to Join</h1>
         <div id="Reasons">
-          <div>
-            Enjoy on your TV Watch on Smart TVs, Playstation, Xbox, Chromecast,
-            Apple TV, Blu-ray players, and more.<svg
+          <div id="cards">
+            <div id="p">
+            <p><strong>Enjoy on your TV</strong></p><p> Watch on Smart TVs, Playstation, Xbox, Chromecast,
+            Apple TV, Blu-ray players, and more.</p></div><svg
               width="72"
               height="72"
               viewBox="0 0 72 72"
@@ -800,9 +949,9 @@
               </defs>
             </svg>
           </div>
-          <div>
-            Download your shows to watch offline Save your favorites easily and
-            always have something to watch.
+          <div id="cards">
+            <div id="p">
+            <p><strong>Download your shows to watch offline</strong></p> <p>Save your favorites easily and always have something to watch.</p></div>
             <svg width="72" height="72" viewBox="0 0 72 72" fill="none">
               <g id="download-core-small">
                 <path
@@ -942,9 +1091,10 @@
               </defs>
             </svg>
           </div>
-          <div>
-            Watch everywhere Stream unlimited movies and TV shows on your phone,
-            tablet, laptop, and TV.<svg
+          <div id="cards">
+            <div id="p">
+            <p><strong>Watch everywhere</strong></p> <p>Stream unlimited movies and TV shows on your phone,
+            tablet, laptop, and TV.</p></div><svg
               width="72"
               height="72"
               viewBox="0 0 72 72"
@@ -1116,10 +1266,11 @@
               </defs>
             </svg>
           </div>
-          <div>
-            Create profiles for kids Send kids on adventures with their favorite
+          <div id="cards">
+            <div id="p">
+            <p><strong>Create profiles for kids </strong></p><p>Send kids on adventures with their favorite
             characters in a space made just for them — free with your
-            membership.
+            membership.</p></div>
             <svg width="72" height="72" viewBox="0 0 72 72" fill="none">
               <g id="profiles-core-small">
                 <path
@@ -1309,6 +1460,9 @@
             </svg>
           </div>
         </div>
+        <h1>Frequently Asked Questions</h1>
+        <div id="details">
+          <div id="d">
         <details>
           <summary>What is Netflix?</summary>
           <p>
@@ -1320,14 +1474,18 @@
             movies are added every week!
           </p>
         </details>
+        </div>
+        <div id="d">
         <details>
           <summary>How much does Netflix cost?</summary>
           <p>
             Watch Netflix on your smartphone, tablet, Smart TV, laptop, or
             streaming device, all for one fixed monthly fee. Plans range from
-            $7.99 to $24.99 a month (pre-tax). No extra costs, no contracts.
+            $7.99 to $24.99 a month (pre-teax). No extra costs, no contracts.
           </p>
         </details>
+        </div>
+        <div id="d">
         <details>
           <summary>Where can I watch?</summary>
           <p>
@@ -1342,6 +1500,8 @@
             internet connection. Take Netflix with you anywhere.
           </p>
         </details>
+        </div>
+        <div id="d">
         <details>
           <summary>How do I cancel?</summary>
           <p>
@@ -1351,6 +1511,8 @@
             anytime.
           </p>
         </details>
+        </div>
+        <div id="d">
         <details>
           <summary>What can I watch on Netflix?</summary>
           <p>
@@ -1359,6 +1521,8 @@
             much as you want, anytime you want.
           </p>
         </details>
+        </div>
+        <div id="d">
         <details>
           <summary>Is Netflix good for kids?</summary>
           <p>
@@ -1370,7 +1534,10 @@
             want kids to see.
           </p>
         </details>
+        </div>
+        </div>
       </section>
+      
     </main>
 
     <footer>
